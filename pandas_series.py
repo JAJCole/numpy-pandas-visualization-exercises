@@ -62,6 +62,8 @@ my_series[:5]
 my_series[-3:]
 np.random.choice(my_series)
 np.random.choice(my_series)
+# OR
+np.random.choice(my_series, 2)
 
 
 # Run the .describe() on fruits to see what information it returns when called on a Series with string values.
@@ -83,3 +85,42 @@ my_series.value_counts()
 
 # Determine the string value that occurs least frequently in fruits.
 # all but two have one occurance
+
+
+
+
+# Exercises pt.2:
+
+# Capitalize all the string values in fruits.
+import pandas as pd
+import numpy as np
+
+fruits = ["kiwi", "mango", "strawberry", "pineapple", "gala apple", "honeycrisp apple", "tomato", "watermelon", "honeydew", "kiwi", "kiwi", "kiwi", "mango", "blueberry", "blackberry", "gooseberry", "papaya"]
+fruits = pd.Series(["kiwi", "mango", "strawberry", "pineapple", "gala apple", "honeycrisp apple", "tomato", "watermelon", "honeydew", "kiwi", "kiwi", "kiwi", "mango", "blueberry", "blackberry", "gooseberry", "papaya"])
+fruits.str.upper()
+
+
+# Count the letter "a" in all the string values (use string vectorization).
+# Use `isin()` to tell whether each value is in a set of known values. 
+vowels = list('a')
+fruits = ["kiwi", "mango", "strawberry", "pineapple", "gala apple", "honeycrisp apple", "tomato", "watermelon", "honeydew", "kiwi", "kiwi", "kiwi", "mango", "blueberry", "blackberry", "gooseberry", "papaya"]
+fruit_series = pd.Series(fruits)
+fruit_series
+fruit_series.isin(vowels).value_counts()
+
+
+
+
+# Output the number of vowels in each and every string value.
+
+# Write the code to get the longest string value from fruits.
+
+# Write the code to get the string values with 5 or more letters in the name.
+
+# Find the fruit(s) containing the letter "o" two or more times.
+
+# Write the code to get only the string values containing the substring "berry".
+
+# Write the code to get only the string values containing the substring "apple".
+
+# Which string value contains the most vowels?
