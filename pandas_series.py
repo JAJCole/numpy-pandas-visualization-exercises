@@ -108,19 +108,74 @@ fruit_series = pd.Series(fruits)
 fruit_series
 fruit_series.isin(vowels).value_counts()
 
-
+fruit_series.str.count('a')
 
 
 # Output the number of vowels in each and every string value.
+fruit_series.str.count('a|e|i|o|u')
+
 
 # Write the code to get the longest string value from fruits.
+max(fruit_series, key = len)
+
 
 # Write the code to get the string values with 5 or more letters in the name.
+fruit_series[fruit_series.str.len() >= 5]
+
 
 # Find the fruit(s) containing the letter "o" two or more times.
+fruit_series[fruit_series.str.count('o') > 1]
+
 
 # Write the code to get only the string values containing the substring "berry".
+fruit_series[fruit_series.str.contains('berry')]
+
 
 # Write the code to get only the string values containing the substring "apple".
+fruit_series[fruit_series.str.contains('apple')]
+
 
 # Which string value contains the most vowels?
+fruit_series.str.count('[aeiou]').max()
+# index 5 is honeycrisp apple
+
+fruit_series
+
+
+# Exercises pt.3:
+# Use pandas to create a Series named letters from the following 
+# string. The easiest way to make this string into a Pandas series 
+# is to use list to convert each individual letter into a single 
+# string on a basic Python list.
+
+
+pt_3_letters = 'hnvidduckkqxwymbimkccexbkmqygkxoyndmcxnwqarhyffsjpsrabtjzsypmzadfavyrnndndvswreauxovncxtwzpwejilzjrmmbbgbyxvjtewqthafnbkqplarokkyydtubbmnexoypulzwfhqvckdpqtpoppzqrmcvhhpwgjwupgzhiofohawytlsiyecuproguy'
+pt_3_list = list(pt_3_letters)
+pt_3_series = pd.Series(pt_3_list)
+
+pt_3_series
+
+
+letters = pd.Series(list(pt_3_letters))
+letters
+
+# Which letter occurs the most frequently in the letters Series?
+letters.value_counts().max()
+
+
+
+# Which letter occurs the Least frequently?
+letters.value_counts().min()
+
+
+# How many vowels are in the Series?
+vowels = letters.str.count('[aeiou]')
+vowels
+
+# How many consonants are in the Series?
+
+   
+# Create a Series that has all of the same letters but uppercased.
+
+
+# Create a bar plot of the frequencies of the 6 most commonly occuring letters.
