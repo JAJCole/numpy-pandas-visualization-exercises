@@ -169,13 +169,24 @@ letters.value_counts().min()
 
 
 # How many vowels are in the Series?
-vowels = letters.str.count('[aeiou]')
-vowels
+
+def is_vowel(text):
+    return text in ['a','e','i','o','u']
+
+letters.str.lower().apply(is_vowel).sum()
+
 
 # How many consonants are in the Series?
+def is_conso(text):
+    return text not in ['a','e','i','o','u']
 
+letters.str.lower().apply(is_conso).sum()
    
 # Create a Series that has all of the same letters but uppercased.
-
+upper_series = letters.str.upper()
+upper_series
 
 # Create a bar plot of the frequencies of the 6 most commonly occuring letters.
+letters.value_counts().head(6).plot(kind="bar")
+
+
