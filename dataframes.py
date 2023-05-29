@@ -58,6 +58,7 @@ df
 from pydataset import data
 mpg_df = data('mpg')
 mpg_df
+mpg_df.shape #234, 12
 
 # What are the data types of each column?
 mpg_df.describe
@@ -98,17 +99,21 @@ mpg_df.sort_values(['mileage_difference'], ascending=False)
 
 # Create a column named average_mileage that is the mean of the city and highway mileage.
 # Which dodge car has the best average mileage? The worst?
+mpg_df['average_mileage'] = (mpg_df['highway'] + mpg_df['city'])/2
+mpg_df.head(1) # best
+mpg_df.tail(1) # worst
 
 # Load the Mammals dataset. Read the documentation for it, and use the data to answer these questions:
-mammals = data('mammals')
+mammals = data('Mammals')
 mammals
 
 # How many rows and columns are there?
 mammals.info()
-# 2 columns and 62rows
+mammals.shape
+#107,4
 
 # What are the data types?
-mammals.dtype()
+mammals.dtypes
 
 
 # Summarize the dataframe with .info and .describe
@@ -116,5 +121,16 @@ mammals.info()
 mammals.describe()
 
 # What is the the weight of the fastest animal?
+mammals.sort_values(['speed'], ascending=False).head(1)
+
 # What is the overal percentage of specials?
+mammals['specials'].value_counts()
+
 # How many animals are hoppers that are above the median speed? What percentage is this?
+mammals['hoppers'].value_counts()
+
+medi = mammals['speed'].median()
+
+mammals['hoppers'][mammals['speed']>medi].value_counts()
+# 15.22% of hoppers are above median speed.
+# 6.54% of all animals are hoppers and above median speed.
