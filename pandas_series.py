@@ -187,6 +187,6 @@ upper_series = letters.str.upper()
 upper_series
 
 # Create a bar plot of the frequencies of the 6 most commonly occuring letters.
-letters.value_counts().head(6).plot(kind="bar")
+letters.value_counts().head(6).plot(kind="barh")
 
 
