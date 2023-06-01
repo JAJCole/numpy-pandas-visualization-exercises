@@ -3,7 +3,7 @@
 
 
 # Create a function named get_db_url. It should accept a username, hostname, password, and database name and return a url connection string formatted like in the example at the start of this lesson.
-from env import host, user, password
+from env import get_db_url
 
 url = f'mysql+pymysql://{user}:{password}@{host}/employees'
 
@@ -12,7 +12,7 @@ pd.read_sql('SELECT * FROM employees LIMIT 5 OFFSET 50', url)
 
 
 def get_db_url(un, hn, pw, db):
-    return 
+    return url
 
 
 # Use your function to obtain a connection to the employees database.
